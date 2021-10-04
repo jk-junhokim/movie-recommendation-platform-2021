@@ -1,0 +1,18 @@
+{
+  "name": "movie-app-2021",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "create-react-app": "^4.0.3",
+    "git": "^0.1.5",
+    "npm": "^7.24.1",
+    "npx": "^10.2.2"
+  }
+}

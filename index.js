@@ -1,0 +1,1 @@
+// start by searching "create-react-app" on google and read the documents
