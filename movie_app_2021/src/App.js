@@ -34,6 +34,7 @@ function Food({name, picture}){
         <img src={picture} alt={name} />
         <h3>GRASS</h3>
         <h4>dir, cd movie_app_2021, dir, npm start</h4>
+        <h4>Just checking in...for the sake of GRASS</h4>
     </div>
     );
 }
