@@ -32,7 +32,8 @@ function Food({name, picture}){
     <div>
         <h3>I like {name}</h3>
         <img src={picture} alt={name} />
-        <h3>Finished Review</h3>
+        <h3>Finished Reviewing.</h3>
+        <h3>Continue project tmrw</h3>
     </div>
     );
 }
