@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Subheader from './sub-header.js';
 
 const foodILike = [
     {
@@ -41,6 +42,8 @@ function App() {
   return (
       <div>
         <h1>Please send me to the States</h1>
+        <Subheader />
+        
         {foodILike.map(dish => (
             <Food 
             key={dish.id}
