@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Subheader from './sub-header.js';
+import PropTypes from 'prop-types';
 
 const foodILike = [
     {
@@ -33,10 +34,14 @@ function Food({name, picture, rating}){
     return (
     <div>
         <h3>I like {name}</h3>
-        <img src={picture} alt={name} />
         <p>Rating: {rating}</p>
+        <img src={picture} alt={name} />
     </div>
     );
+}
+
+Food.propTypes = {
+    name: PropTypes.string.isRequired
 }
 
 function App() {

@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
     "git": "^0.1.5",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
