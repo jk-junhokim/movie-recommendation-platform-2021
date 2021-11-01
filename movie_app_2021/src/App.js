@@ -29,11 +29,12 @@ const foodILike = [
     }
 ]
 
-function Food({name, picture}){
+function Food({name, picture, rating}){
     return (
     <div>
         <h3>I like {name}</h3>
         <img src={picture} alt={name} />
+        <p>Rating: {rating}</p>
     </div>
     );
 }
