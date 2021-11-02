@@ -15,6 +15,7 @@ function Subheader(){
             <Examples ex="food" />
             <Examples ex="people" />
             <Examples ex="vibe" />
+            <Examples ex="everything to be honest" />
         </div>
     );
 }
