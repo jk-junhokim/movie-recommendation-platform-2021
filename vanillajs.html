@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<!-- create html -->
+<body>
+    <span>Total clicks: 0</span>
+    <button>Click Me</button>
+</body>
+
+<!-- create js script -->
+<script>
+    let counter = 0;
+
+    // get the elements
+    const button = document.getElementById("btn");
+    const span = document.querySelector("span");
+
+    // create the function
+    function handleClick(){
+        console.log("i have been clicked");
+        counter  = counter + 1;
+        span.innerText = `Total clicks: ${counter}`; // update the html
+    }
+
+    // call the function
+    button.addEventListner("click")
+
+    // conclusion: so many steps...need to handle every step and action
+</script>    
+</html>
