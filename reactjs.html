@@ -1,13 +1,28 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-<script></script>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="root"></div>
+    </body>
+
+    <!-- allows us to use react packages -->
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <!-- allows react to access the html section -->
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+
+    <!-- using reactjs, we create all the html components with react. so updating html, functions, css, actions are much powerful and efficient -->
+
+    <script>
+        const root = document.getElementById("root");
+        const span = React.createElement(
+            "span", 
+            {id:"new-line"}, 
+            "Hello, this is a span",
+            style: {color: "red"}
+            );
+        ReactDOM.render(span, root);
+    </script>
 </html>
