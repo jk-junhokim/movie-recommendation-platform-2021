@@ -20,13 +20,21 @@
 
     <script>
         const root = document.getElementById("root");
-        const span = React.createElement("span", null, "Hello, this is a span",style: {color: "red"});
+        const span = React.createElement(
+            "span", 
+            {
+                onMouseEnter: () => console.log("mouse enter");
+            }, 
+            "Hello, this is a span",
+            style: {color: "red"}
+            );
         const btn = React.createElement(
             "button",
             {
                 onClick: () => console.log("I'm clicked")
             },
-            "Click me");
+            "Click me"
+            );
         const container = React.createElement("div", null, [span, btn]);
 
         ReactDOM.render(container, root);
