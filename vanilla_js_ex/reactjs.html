@@ -25,6 +25,11 @@
             Hello, I'm a title
             </h3>
         );
+        const btn =(
+            <button id="button" onClick ={() => console.log("I'm clicked")}>
+            Click Me
+            </button>
+        );
 
         /*
         const h3 = React.createElement(
@@ -38,6 +43,7 @@
             );
         */
 
+        /*
         const btn = React.createElement(
             "button",
             {
@@ -45,6 +51,7 @@
             },
             "Click me"
             );
+        */
 
 
         const container = React.createElement("div", null, [span, btn]);
