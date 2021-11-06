@@ -12,6 +12,8 @@
     <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
     <!-- allows react to access the html section -->
     <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel"></script>
 
     <!-- 
         using reactjs, we create all the html components with react.
@@ -20,21 +22,30 @@
 
     <script>
         const root = document.getElementById("root");
-        const Title = (
-            <h3 id: "title" onMouseEnter ={() => console.log("mouse enter")}>
+        
+        const Title = () => (
+            <h3 id="title" onMouseEnter ={() => console.log("mouse enter")}>
             This is a title
             </h3>
         );
-        const Button =(
+
+        const Button = () => ( // same as "function Button(){ return ()}"
             <button id="button" onClick ={() => console.log("I'm clicked")}>
             Click Me
             </button>
         );
 
+        const Container = (
+            <div>
+                <Title />
+                <Button />
+            </div>
+        );
+
         /*
         const h3 = React.createElement(
             "h3", 
-            {]
+            {
                 id: "title",
                 onMouseEnter: () => console.log("mouse enter");
             }, 
@@ -53,9 +64,10 @@
             );
         */
 
+        /*
+        const container = React.createElement("div", null, [Title, Button]);
+        */
 
-        const container = React.createElement("div", null, [span, btn]);
-
-        ReactDOM.render(container, root);
+        ReactDOM.render(Container, root); // render js "Container" component in html "root"
     </script>
 </html>
