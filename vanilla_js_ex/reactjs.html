@@ -12,6 +12,7 @@
     <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
     <!-- allows react to access the html section -->
     <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <!-- changes jsx to js -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel"></script>
 
@@ -22,10 +23,10 @@
 
     <script>
         const root = document.getElementById("root");
-        
+
         const Title = () => (
             <h3 id="title" onMouseEnter ={() => console.log("mouse enter")}>
-            This is a title
+            This is a Title
             </h3>
         );
 
@@ -34,10 +35,19 @@
             Click Me
             </button>
         );
+        /* the arrow function
+        function Button(){
+            return (
+                <button id="button" onClick ={() => console.log("I'm clicked")}>
+                    Click Me
+                </button>
+            );
+        }
+        */
 
-        const Container = (
+        const Container = () => (
             <div>
-                <Title />
+                <Title /> // self-made components should start with uppercase
                 <Button />
             </div>
         );
@@ -52,9 +62,7 @@
             " Hello, I'm a title",
             style: {color: "red"}
             );
-        */
-
-        /*
+ 
         const btn = React.createElement(
             "button",
             {
@@ -62,12 +70,10 @@
             },
             "Click me"
             );
-        */
 
-        /*
         const container = React.createElement("div", null, [Title, Button]);
         */
 
-        ReactDOM.render(Container, root); // render js "Container" component in html "root"
+        ReactDOM.render(<Container />, root); // render js "Container" component in html "root"
     </script>
 </html>
