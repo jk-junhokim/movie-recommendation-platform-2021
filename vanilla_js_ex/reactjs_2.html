@@ -13,7 +13,8 @@
         function App(){
             const [counter, setCounter] = React.useState(0);
             const onClick = () => {
-                setCounter(counter + 1); // automatically triggers render function
+                setCounter((current) => current + 1);
+                // automatically triggers render function
             };
             return(
                 <div>
