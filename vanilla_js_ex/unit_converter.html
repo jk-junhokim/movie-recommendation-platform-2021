@@ -16,17 +16,34 @@
     */
 
     function App(){
-        const [minutes, setMinutes] = React.useState();
+        const [minutes, setMinutes] = React.useState(0); // "0" is the default value which sets the variable "minutes"
         const onChange = (event) => {
             setMinutes(event.target.value);
         };
         return(
             <div>
                 <h1 className="title">Super Converter</h1>
+            </div>
+
+            <div>    
                 <label forHtml="minutes">Minutes</label> // label creates a button for input
-                <input value={minutes} id="minutes" placeholder="Minutes" type="number" onChange={onChange} />
+                <input 
+                    value={minutes} // value for input
+                    id="minutes" 
+                    placeholder="Minutes" 
+                    type="number" 
+                    onChange={onChange} // function that gets called
+                />
+            </div>
+
+            <div>    
                 <label forHtml="minutes">Hours</label>
-                <input id="hours" placeholder="Hours" type="number" />
+                <input 
+                    value={minutes/60} 
+                    id="hours" 
+                    placeholder="Hours" 
+                    type="number"  
+                />
             </div>
         );
     }
