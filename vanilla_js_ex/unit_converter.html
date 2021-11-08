@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root">
+    </div>
+</body>
+<script>
+    /*
+    useState function takes one argument as the variable that get modified, and a modfier function that modifies the value of the argument variable.
+
+    ReactDOM renders <App />, which is a jsx, in the div with id=root. <App /> is a function which creates the html text written by the programmer. for <input>, it has the value={minutes} and calls the onChange function. the onChange function takes the parameter "event" and locates specific data stored in "target", and "value" which are passed into the setMinutes function. finally, the setMinutes function will modify the "minutes" variable.
+    */
+
+    function App(){
+        const [minutes, setMinutes] = React.useState();
+        const onChange = (event) => {
+            setMinutes(event.target.value);
+        };
+        return(
+            <div>
+                <h1 className="title">Super Converter</h1>
+                <label forHtml="minutes">Minutes</label> // label creates a button for input
+                <input value={minutes} id="minutes" placeholder="Minutes" type="number" onChange={onChange} />
+                <label forHtml="minutes">Hours</label>
+                <input id="hours" placeholder="Hours" type="number" />
+            </div>
+        );
+    }
+    ReactDOM.render(<App />, root);
+</script>
+</html>
