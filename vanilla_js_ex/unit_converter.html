@@ -16,13 +16,24 @@
     */
 
     function App(){
-        const [minutes, setMinutes] = React.useState(0); // "0" is the default value which sets the variable "minutes"
+
+        // state methods
+        const [timeAmount, setTimeAmount] = React.useState(0); // "0" is the default value which sets the variable "timeAmount"
+        const [flipped, setFlipped] = React.useState(false);
+
+        // value modifier methods
         const onChange = (event) => {
-            setMinutes(event.target.value);
+            setTimeAmount(event.target.value);
         };
         const reset = () => {
             setMinutes(0);
         };
+        const onFlip = () => { // simply takes the current value and flips it
+            reset();
+            setFlipped(!flipped);
+        };
+
+        // html
         return(
             <div>
                 <h1 className="title">Super Converter</h1>
@@ -31,27 +42,32 @@
             <div>    
                 <label forHtml="minutes">Minutes</label> // label creates a button for input
                 <input 
-                    value={minutes} // value for input
+                    value={flipped ? timeAmount*60 : timeAmount} // value for input
                     id="minutes" 
                     placeholder="Minutes" 
                     type="number" 
                     onChange={onChange} // function that gets called
+                    disabled={flipped}
                 />
             </div>
 
-            <div>    
+            <div>
                 <label forHtml="minutes">Hours</label>
                 <input 
-                    value={minutes/60} 
+                    value={flipped ? timeAmount : timeAmount/60} 
                     id="hours" 
                     placeholder="Hours" 
-                    type="number"  
+                    type="number"
+                    disabled={!flipped} // the hours converter will be disabled if flipped is false. this is how WE set the disabled set.
                 />
             </div>
 
             <button onClick={reset}>Reset</button>
+            <button onClick={onFlip}>Flip</button>
         );
     }
+
+    // renders jsx
     ReactDOM.render(<App />, root);
 </script>
 </html>
