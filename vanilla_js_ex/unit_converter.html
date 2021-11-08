@@ -15,8 +15,7 @@
     ReactDOM renders <App />, which is a jsx, in the div with id=root. <App /> is a function which creates the html text written by the programmer. for <input>, it has the value={minutes} and calls the onChange function. the onChange function takes the parameter "event" and locates specific data stored in "target", and "value" which are passed into the setMinutes function. finally, the setMinutes function will modify the "minutes" variable.
     */
 
-    function App(){
-
+    function TimeConverter(){
         // state methods
         const [timeAmount, setTimeAmount] = React.useState(0); // "0" is the default value which sets the variable "timeAmount"
         const [flipped, setFlipped] = React.useState(false);
@@ -35,9 +34,6 @@
 
         // html
         return(
-            <div>
-                <h1 className="title">Super Converter</h1>
-            </div>
 
             <div>    
                 <label forHtml="minutes">Minutes</label> // label creates a button for input
@@ -63,11 +59,46 @@
             </div>
 
             <button onClick={reset}>Reset</button>
-            <button onClick={onFlip}>Flip</button>
+            <button onClick={onFlip}>{flipped ? "Turn back" : "Invert"}</button>
+        );
+    }
+
+    function DistanceConverter(){
+
+        return(
+            <h3>KM 2 M</h3>
+            // finish this function
+        );
+    }
+
+    function App(){
+        const [index, setIndex] = React.useState("0");
+        const onSelect = (event) => {
+            setIndex(event.target.value);
+        };
+        return(
+            <div>
+                <h1>Super Converter</h1>
+                // <TimeConverter />
+                // <DistanceConverter />
+                <select value={index} onChange={onSelect}> // vanilla html stuff
+                    <option value="-1">Select your unit</option>
+                    <option value="0">Minutes & Hours</option>
+                    <option vavlue="1">Kilometers & Miles</option>
+                </select>
+                <hr />
+                /*
+                the following code in the curly braces is javascript
+                */
+                {index === "-1" ? "Please select your unit converter" :null}
+                {index === "0" ? <TimeConverter /> :null}
+                {index === "1" ? <DistanceConverter /> :null}
+            </div>
         );
     }
 
     // renders jsx
+    const root = document.getElementById("root");
     ReactDOM.render(<App />, root);
 </script>
 </html>
