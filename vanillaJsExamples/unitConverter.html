@@ -64,6 +64,7 @@
     }
 
     function DistanceConverter(){
+        /* distanctAmount: the modifiable variable. setDistanceAmount: modifier function */
         const [distanceAmount, setDistanceAmount] = React.useState(0);
         const [flipped, setFlipped] = React.useState(false);
         const onChange = (event) => {
@@ -82,11 +83,11 @@
                 <label forHtml="kilometers">Kilometers</label>
                 <input 
                     value={flipped ? timeAmount*1.609 : timeAmount}
-                    id="kilometers" 
-                    placeholder="Minutes" 
-                    type="number" 
-                    onChange={onChange}
-                    disabled={flipped}
+                    id="kilometers" // connects <input> with <label>
+                    placeholder="Minutes" // 
+                    type="number" //
+                    onChange={onChange} // triggers onChange function (already defined). attribute onChange is assigned the returned value of {onChange}
+                    disabled={flipped} // triggers flipped function (already defined). {flipped} is not the name of the function. rather it's a value
                 />
             </div>
 
@@ -110,31 +111,29 @@
     function App(){
         const [index, setIndex] = React.useState("0");
         const onSelect = (event) => {
-            setIndex(event.target.value);
+            setIndex(event.target.value); // sets state "index" to "event.target.value"
         };
         return(
             <div>
                 <h1>Super Converter</h1>
-                // <TimeConverter />
-                // <DistanceConverter />
-                <select value={index} onChange={onSelect}> // vanilla html stuff
+                /* vanilla html that creates a scroll down option selector */
+                <select value={index} onChange={onSelect}>
+                    /* once an option is selected, it triggers the "onChange=onSelect" function. the function sends an argument "value" */
                     <option value="-1">Select your unit</option>
                     <option value="0">Minutes & Hours</option>
                     <option vavlue="1">Kilometers & Miles</option>
                 </select>
                 <hr />
-                /*
-                the following code in the curly braces is javascript
-                */
-                {index === "-1" ? "Please select your unit converter" :null}
+                /* the following code in the curly braces is javascript */
+                /* depending on the value set by the onSelect function, one of the following jsx is called */
+                {index === "-1" ? "Please select your unit converter" : null}
                 {index === "0" ? <TimeConverter /> :null}
                 {index === "1" ? <DistanceConverter /> :null}
             </div>
         );
     }
 
-    // renders jsx
-    const root = document.getElementById("root");
-    ReactDOM.render(<App />, root);
+    const root = document.getElementById("root"); // gets the <div> location in main html
+    ReactDOM.render(<App />, root); // renders main function "<App /> in "root"
 </script>
 </html>
