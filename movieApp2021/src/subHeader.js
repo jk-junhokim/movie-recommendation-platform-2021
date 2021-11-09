@@ -1,5 +1,5 @@
 import React from 'react';
-import './sub-header.css';
+import './subHeader.css';
 
 function Examples({ex}){
     return(

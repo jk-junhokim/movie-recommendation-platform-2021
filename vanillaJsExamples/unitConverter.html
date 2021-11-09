@@ -25,7 +25,7 @@
             setTimeAmount(event.target.value);
         };
         const reset = () => {
-            setMinutes(0);
+            setTimeAmount(0);
         };
         const onFlip = () => { // simply takes the current value and flips it
             reset();
@@ -64,10 +64,46 @@
     }
 
     function DistanceConverter(){
+        const [distanceAmount, setDistanceAmount] = React.useState(0);
+        const [flipped, setFlipped] = React.useState(false);
+        const onChange = (event) => {
+            setDistanceAmount(event.target.value);
+        };
+        const reset = () => {
+            setDistanceAmount(0);
+        };
+        const onFlip = () => {
+            reset();
+            setFlipped(!flipped);
+        };
 
         return(
-            <h3>KM 2 M</h3>
-            // finish this function
+            <div>    
+                <label forHtml="kilometers">Kilometers</label>
+                <input 
+                    value={flipped ? timeAmount*1.609 : timeAmount}
+                    id="kilometers" 
+                    placeholder="Minutes" 
+                    type="number" 
+                    onChange={onChange}
+                    disabled={flipped}
+                />
+            </div>
+
+            <div>
+                <label forHtml="kilometers">Miles</label>
+                <input 
+                    value={flipped ? timeAmount : timeAmount/1.609} 
+                    id="miles" 
+                    placeholder="Miles" 
+                    type="number"
+                    disabled={!flipped}
+                />
+            </div>
+
+            <button onClick={reset}>Reset</button>
+            <button onClick={onFlip}>{flipped ? "Turn back" : "Invert"}</button>
+
         );
     }
 

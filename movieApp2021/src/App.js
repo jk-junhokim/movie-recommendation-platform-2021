@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Subheader from './sub-header.js';
+import Subheader from './subHeader.js';
 import PropTypes from 'prop-types';
 
 const foodILike = [
