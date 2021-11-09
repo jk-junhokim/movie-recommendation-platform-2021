@@ -12,27 +12,26 @@
     /*
     useState function takes one argument as the variable that get modified, and a modfier function that modifies the value of the argument variable.
 
-    ReactDOM renders <App />, which is a jsx, in the div with id=root. <App /> is a function which creates the html text written by the programmer. for <input>, it has the value={minutes} and calls the onChange function. the onChange function takes the parameter "event" and locates specific data stored in "target", and "value" which are passed into the setMinutes function. finally, the setMinutes function will modify the "minutes" variable.
+    ReactDOM renders <App />, which is a jsx, in the div with id=root. <App /> is a function which creates the html text written by the programmer. for <input>, it has the value={minutes} and calls the onChange function. the onChange function takes the parameter "event" and locates specific data stored in "target", and "value" which are passed into the setMinutes function. finally, the setMinutes function will modify the "minutes" variable and return it back to "value"
     */
 
     function TimeConverter(){
         // state methods
-        const [timeAmount, setTimeAmount] = React.useState(0); // "0" is the default value which sets the variable "timeAmount"
+        const [timeAmount, setTimeAmount] = React.useState(0); // "0" is the default value which sets the variable "timeAmount", the value before the user inputs anything
         const [flipped, setFlipped] = React.useState(false);
 
         // value modifier methods
         const onChange = (event) => {
-            setTimeAmount(event.target.value);
+            setTimeAmount(event.target.value); // event.target.value is where the data gets stored
         };
         const reset = () => {
             setTimeAmount(0);
         };
-        const onFlip = () => { // simply takes the current value and flips it
+        const onFlip = () => {
             reset();
             setFlipped(!flipped);
         };
 
-        // html
         return(
 
             <div>    
@@ -82,11 +81,11 @@
             <div>    
                 <label forHtml="kilometers">Kilometers</label>
                 <input 
-                    value={flipped ? timeAmount*1.609 : timeAmount}
+                    value={flipped ? distanceAmount*1.609 : distanceAmount} // if false, then first component, if true, second component
                     id="kilometers" // connects <input> with <label>
-                    placeholder="Minutes" // 
-                    type="number" //
-                    onChange={onChange} // triggers onChange function (already defined). attribute onChange is assigned the returned value of {onChange}
+                    placeholder="Minutes" // *
+                    type="number" // *
+                    onChange={onChange} // triggers onChange function (already defined). attribute onChange is assigned the returned value of {onChange}, which is the input by the user
                     disabled={flipped} // triggers flipped function (already defined). {flipped} is not the name of the function. rather it's a value
                 />
             </div>
@@ -94,7 +93,7 @@
             <div>
                 <label forHtml="kilometers">Miles</label>
                 <input 
-                    value={flipped ? timeAmount : timeAmount/1.609} 
+                    value={flipped ? distanceAmount : distanceAmount/1.609} 
                     id="miles" 
                     placeholder="Miles" 
                     type="number"
@@ -125,7 +124,7 @@
                 </select>
                 <hr />
                 /* the following code in the curly braces is javascript */
-                /* depending on the value set by the onSelect function, one of the following jsx is called */
+                /* depending on the value set by the onSelect function, only one of the following jsx is called */
                 {index === "-1" ? "Please select your unit converter" : null}
                 {index === "0" ? <TimeConverter /> :null}
                 {index === "1" ? <DistanceConverter /> :null}
