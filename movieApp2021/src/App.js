@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Subheader from './subHeader.js';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
 const foodILike = [
     {
@@ -44,22 +45,30 @@ Food.propTypes = {
     name: PropTypes.string.isRequired
 }
 
+
 function App() {
-  return (
-      <div>
-        <h1>Please send me to the States</h1>
-        <h2>Grind!!!!!</h2>
-        <Subheader />
+    const [counter, setValue] = useState(0);
+    const onClick = () => setValue(
+        (prev) => prev + 1
+        );
+    return (
+        <div>
+            <h1>Please send me to the States</h1>
+
+            <h2>{counter}</h2>
+            <button onClick={onClick}>click me!</button>
+
+            <Subheader />
         
-        {foodILike.map(dish => (
-            <Food 
-            key={dish.id}
-            name={dish.name}
-            picture={dish.image}
-            rating={dish.rating} />
-        ))}
-      </div>
-  );
+            {foodILike.map(dish => (
+                <Food 
+                key={dish.id}
+                name={dish.name}
+                picture={dish.image}
+                rating={dish.rating} />
+            ))}
+        </div>
+    );
 }
 
 export default App;
