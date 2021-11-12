@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Subheader from './subHeader.js';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const foodILike = [
     {
@@ -51,10 +51,17 @@ function App() {
     const onClick = () => setValue(
         (prev) => prev + 1
         );
+
+    console.log("I run all the time.");
+    // const runOnlyOnce = () => {
+    //     console.log("CALL THE API...");
+    // };
+    useEffect(() => {
+        console.log("CALL THE API...");
+    }, []);
     return (
         <div>
             <h1>Please send me to the States</h1>
-
             <h2>{counter}</h2>
             <button onClick={onClick}>click me!</button>
 
