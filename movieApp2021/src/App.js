@@ -53,9 +53,6 @@ function App() {
         );
 
     console.log("I run all the time.");
-    // const runOnlyOnce = () => {
-    //     console.log("CALL THE API...");
-    // };
     useEffect(() => {
         console.log("CALL THE API...");
     }, []);
