@@ -45,7 +45,6 @@ Food.propTypes = {
     name: PropTypes.string.isRequired
 }
 
-
 function App() {
     const [counter, setValue] = useState(0);
     const [keyword, setKeyword] = useState("");
@@ -60,6 +59,7 @@ function App() {
     console.log("I run all the time."); 
     // always gets rendered when parent state or function is modified
 
+    // reactjs will always refresh your UI when a component (data) is changed. we can choose by using useEffect
     // useEffect() : choose when to call certain functions & effects
     useEffect(() => {
         console.log("I run only once.");
