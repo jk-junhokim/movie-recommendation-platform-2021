@@ -60,15 +60,32 @@ function App() {
     console.log("I run all the time."); 
     // always gets rendered when parent state or function is modified
 
+    // useEffect() : choose when to call certain functions & effects
     useEffect(() => {
-        console.log("CALL THE API...");
+        console.log("I run only once.");
     }, []);
+    useEffect(() => {
+        console.log("I run when 'counter' changes.");
+    }, [counter]);
+    useEffect(() => {
+        console.log("I run when 'counter' or 'keyword' changes.");
+    }, [counter, keyword]);
+    useEffect(() => {
+        if (keyword !== "" && keyword.length > 5){
+        console.log("I run when 'keyword' changes.");
+        }
+    }, [keyword]);
+
+    // console.log("Search for", keyword); // want this to change only when keyword is modified
 
     return (
         <div>
             <h1>Please send me to the States</h1>
             <h2>{counter}</h2>
-            <button onClick={onClick}>click me!</button>
+            <div>
+                <button onClick={onClick}>click me!</button>
+            </div>
+
             <input // make input
                 value={keyword} // get input value
                 onChange={onChange} // give event listner
