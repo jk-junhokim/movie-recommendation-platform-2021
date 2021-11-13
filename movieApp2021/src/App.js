@@ -48,19 +48,33 @@ Food.propTypes = {
 
 function App() {
     const [counter, setValue] = useState(0);
+    const [keyword, setKeyword] = useState("");
+
     const onClick = () => setValue(
         (prev) => prev + 1
-        );
+    );
+    const onChange = (event) => setKeyword(
+        event.target.value
+    );
 
-    console.log("I run all the time.");
+    console.log("I run all the time."); 
+    // always gets rendered when parent state or function is modified
+
     useEffect(() => {
         console.log("CALL THE API...");
     }, []);
+
     return (
         <div>
             <h1>Please send me to the States</h1>
             <h2>{counter}</h2>
             <button onClick={onClick}>click me!</button>
+            <input // make input
+                value={keyword} // get input value
+                onChange={onChange} // give event listner
+                type="text" 
+                placeholder="Search here..." 
+            />
 
             <Subheader />
         
