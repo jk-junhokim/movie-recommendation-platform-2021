@@ -52,9 +52,7 @@ function App() {
     const onClick = () => setValue(
         (prev) => prev + 1
     );
-    const onChange = (event) => setKeyword(
-        event.target.value
-    );
+    const onChange = (event) => setKeyword(event.target.value);
 
     console.log("I run all the time."); 
     // always gets rendered when parent state or function is modified
@@ -63,7 +61,7 @@ function App() {
     // useEffect() : choose when to call certain functions & effects
     useEffect(() => {
         console.log("I run only once.");
-    }, []); // without keyword, the useEffect function will only run once (empty list)
+    }, []); // without keyword, the useEffect function will only run once when the App function is rendered (empty list)
     useEffect(() => {
         console.log("I run when 'counter' changes.");
     }, [counter]);
@@ -78,12 +76,22 @@ function App() {
 
     // console.log("Search for", keyword); // want this to change only when keyword is modified
 
+    // cleanup function
+    const [showing, setShowing] = useState(false);
+    const onClickCleanUp = () => setShowing((prev) => !prev);
+
+    // cleanup function located in subHeader
+
     return (
         <div>
             <h1>Please send me to the States</h1>
             <h2>{counter}</h2>
             <div>
                 <button onClick={onClick}>click me!</button>
+            </div>
+            <div>
+                <button onClick={onClickCleanUp}>{showing ? "Hide Subheader" : "Show Subheader"}</button>
+                {showing ? <Subheader /> : null}
             </div>
 
             <input // make input
@@ -92,8 +100,6 @@ function App() {
                 type="text" 
                 placeholder="Search here..." 
             />
-
-            <Subheader />
         
             {foodILike.map(dish => (
                 <Food 
