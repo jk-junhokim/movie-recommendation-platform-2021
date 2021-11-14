@@ -63,7 +63,7 @@ function App() {
     // useEffect() : choose when to call certain functions & effects
     useEffect(() => {
         console.log("I run only once.");
-    }, []);
+    }, []); // without keyword, the useEffect function will only run once (empty list)
     useEffect(() => {
         console.log("I run when 'counter' changes.");
     }, [counter]);
