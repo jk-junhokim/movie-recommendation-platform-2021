@@ -52,7 +52,10 @@ function App() {
     const onClick = () => setValue(
         (prev) => prev - 1
     );
-    const onChange = (event) => setKeyword(event.target.value);
+    // const onChange = (event) => setKeyword(event.target.value);
+    function onChange(event){
+        setKeyword(event.target.value);
+    }
 
     console.log("I run all the time."); 
     // always gets rendered when parent state or function is modified
@@ -65,9 +68,11 @@ function App() {
     useEffect(() => {
         console.log("I run when 'counter' changes.");
     }, [counter]);
+    /*
     useEffect(() => {
         console.log("I run when 'counter' or 'keyword' changes.");
     }, [counter, keyword]);
+    */
     useEffect(() => {
         if (keyword !== "" && keyword.length > 5){
         console.log("I run when 'keyword' changes.");

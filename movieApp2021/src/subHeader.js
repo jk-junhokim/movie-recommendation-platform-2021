@@ -10,7 +10,7 @@ function Examples({ex}){
 
 // cleanup function. using "null" in the subheader function completely destroys the html content in "Intro" function
 function Intro(){
-    useEffect(() => {
+    useEffect(function(){
         console.log("create :)");
         return () => console.log("deleted :("); // the cleanup function
     }, []);
