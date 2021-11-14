@@ -12,12 +12,30 @@ function Examples({ex}){
 function Intro(){
     useEffect(() => {
         console.log("create :)");
-        return () => console.log("destroyed");
+        return () => console.log("deleted :("); // the cleanup function
     }, []);
+
     return(
        <h2>I hate this MF country</h2> 
     );
 }
+
+/*
+function Intro (){
+    function createFn(){
+        console.log("create :)");
+        return deleteFn;
+    }
+    function deleteFn(){
+        console.log("deleted :(");
+    }
+    useEffect(createFn, []);
+
+    return(
+        <h2>I hate this MF country</h2>
+    );
+}
+*/
 
 function Subheader(){
     const [showing, introShowing] = useState(false);
