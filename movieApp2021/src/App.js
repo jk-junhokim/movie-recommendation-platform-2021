@@ -46,11 +46,11 @@ Food.propTypes = {
 }
 
 function App() {
-    const [counter, setValue] = useState(0);
+    const [counter, setValue] = useState(365);
     const [keyword, setKeyword] = useState("");
 
     const onClick = () => setValue(
-        (prev) => prev + 1
+        (prev) => prev - 1
     );
     const onChange = (event) => setKeyword(event.target.value);
 
@@ -85,9 +85,9 @@ function App() {
     return (
         <div>
             <h1>Please send me to the States</h1>
-            <h2>{counter}</h2>
+            <h3>time left till I hit the States  = {counter} mf days</h3>
             <div>
-                <button onClick={onClick}>click me!</button>
+                <button onClick={onClick}>D-Day</button>
             </div>
             <div>
                 <button onClick={onClickCleanUp}>{showing ? "Hide Subheader" : "Show Subheader"}</button>

@@ -4,10 +4,11 @@ import { useState, useEffect} from 'react';
 
 function Examples({ex}){
     return(
-        <p>miss the {ex}...</p>
+        <p>miss {ex}...</p>
     );
 }
 
+// cleanup function. using "null" in the subheader function completely destroys the html content in "Intro" function
 function Intro(){
     useEffect(() => {
         console.log("create :)");
@@ -23,12 +24,12 @@ function Subheader(){
     const onClickSubtitle = () => introShowing((prev) => !prev);
     return(
         <div>
-            <button onClick={onClickSubtitle}>{showing ? "Hide Subtitle" : "Show Subtitle"}</button>
+            <button onClick={onClickSubtitle}>
+                {showing ? "Hide Subheader Subtitle" : "Show Subheader Subtitle"}
+            </button>
             {showing ? <Intro /> : null}
             <h4>Send me home!!!</h4>
-            <Examples ex="food" />
-            <Examples ex="people" />
-            <Examples ex="vibe" />
+            <Examples ex="the food, vibe, and people" />
             <Examples ex="everything to be honest" />
         </div>
     );
